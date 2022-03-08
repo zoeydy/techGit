@@ -1,12 +1,4 @@
-# from audioop import lin2adpcm
-# from cgi import print_directory
-# from html5lib import serialize
-# from numpy import sort
-# from pyrsistent import T
-# from sympy import Q
 
-# option + shift + a = docstring
-# comman + / = comment
 
 name = input("what's your name?")
 print("hello, ", name)
@@ -36,8 +28,9 @@ print(firstName.upper())
 print(firstName.upper().lower())
 print(fullName.title())
 
+# special charector
 print("This is the special mark \'")
-print("when you want to type the backslash", r'\ symble')
+print("when you want to type the backslash", r'\ ') # you need a space after \
 
 # format 
 # 1
@@ -65,7 +58,7 @@ if 'a' in letters:
     print('letter a is in the list letters')
 
 ## list 的运算
-listTest = ['apple']
+listTest = ['apple', 'pinapple']
 listTest.insert(1, "index 1") # insert
 print(listTest)
 listTest.remove('apple') # remove
