@@ -86,17 +86,24 @@ hello(cat_ob)
 
 
 # add new attribute and method
-class AnimalNew():
+class AnimalNew:
     def __init__(self, name, sound):
         self.name = name
         self.sound = sound 
+    
+    def sit(self):
+        print(f"{self.name} is now sitting.")
+
     def greet(self):
         print(f"{self.sound}, I'm a {self.name}")
+
     def method(self):
         print("This is the new method in class animal")
+
 animal_ob = AnimalNew('cat', 'miao')
 animal_ob.greet()
 animal_ob.method()
+animal_ob.name
 ani_dog_ob = AnimalNew('dog', 'wang... wang')
 
 # 再次示例 define function 来调用class中只想要使用的method，function中的参数要是实例object
@@ -107,7 +114,7 @@ method_animal(ani_dog_ob)
 
 
 # 3. ? iterators
-class Fib():
+class Fib:
     def __init__(self):
         self.a = 0
         self.b = 1
