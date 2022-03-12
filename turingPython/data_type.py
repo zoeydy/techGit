@@ -179,3 +179,9 @@ a
 a.discard('something not in the set') # even the things you want to delete is not in the set, you can use this function with retrning error
 a.clear() # remove
 a
+aset = {2,3,4,5,6}
+bset = {5,6,7,8,9}
+aset.intersection(bset)
+aset.union(bset)
+aset.difference(bset)
+bset.difference(aset)
