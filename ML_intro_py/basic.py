@@ -1,5 +1,6 @@
 
 # check the version
+import imp
 import sys
 sys.version
 import pandas as pd
@@ -14,6 +15,10 @@ import IPython
 IPython.__version__
 import sklearn
 sklearn.__version__
+
+# 路径问题
+import sys
+sys.path.append('/Users/zoeydy/opt/anaconda3/lib/python3.9/site-packages/mglearn')
 
 # 1. the Iris example
 from sklearn.datasets import load_iris
@@ -42,8 +47,9 @@ iris_dataframe = pd.DataFrame(X_train, columns=iris_dataset.feature_names)
 # create a scatter matrix from the dataframe, color by y_train
 
 # this block returns the error: NameError: name 'mglearn' is not defined
-# grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15, 15), marker='o',
-#                             hist_kwds={'bins': 20}, s=60, alpha=.8, cmap=mglearn.cm3)
+import mglearn
+grr = pd.plotting.scatter_matrix(iris_dataframe, c=y_train, figsize=(15, 15), marker='o',
+                            hist_kwds={'bins': 20}, s=60, alpha=.8, cmap=mglearn.cm3)
                             
 
 # 2.e.g. the scikit-learn 
@@ -76,3 +82,4 @@ knn = KNeighborsClassifier(n_neighbors=1)
 knn.fit(X_train, y_train)
 
 print("Test set score: {:.2f}".format(knn.score(X_test, y_test)))
+
