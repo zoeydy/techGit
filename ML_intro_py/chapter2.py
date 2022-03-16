@@ -1,9 +1,11 @@
+
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
-sys.path.append('/Users/zoeydy/opt/anaconda3/lib/python3.9/site-packages/mglearn')
+# sys.path.append('/Users/zoeydy/opt/anaconda3/lib/python3.9/site-packages/mglearn')
 import mglearn
+import graphviz
 
 
 # 1.e.g.

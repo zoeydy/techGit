@@ -82,14 +82,10 @@ finally:
 
 # exercise
 
-from isort import file
-
 
 
 
 # if os.path.exists(file_name):
-
-
 
 def file_operator(file_name, mode):
     try:

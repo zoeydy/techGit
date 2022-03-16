@@ -1,13 +1,6 @@
 
 
-
-from ast import expr
-from audioop import lin2adpcm
-import readline
-from tkinter import W
-
 from numpy import array
-from sympy import li
 
 
 def add(num1, num2):
