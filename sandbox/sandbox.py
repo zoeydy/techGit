@@ -34,7 +34,7 @@ from pyparsing import restOfLine
 from pyrsistent import T
 from sklearn import impute
 
-from sympy import li, re, sring
+from sympy import li, ordered, re, separatevars, sring
 
 from techGit.py_turing.function import add 
 for line in sys.stdin:
@@ -210,25 +210,43 @@ for i in range(len(inpu)):
 # import sys
 # import re
 
-inpu = sys.stdin.readline()
+# inpu = sys.stdin.readline()
 
-if len(inpu) <= 1:
-    sys.stdout('Please input the string')
-    sys.exit()
+# if len(inpu) <= 1:
+#     sys.stdout('Please input the string')
+#     sys.exit()
     
-if len(inpu) > 5000:
-    sys.stdout("The length of the string is required to be less than 5000")
-    sys.exit()
+# if len(inpu) > 5000:
+#     sys.stdout("The length of the string is required to be less than 5000")
+#     sys.exit()
     
 
-if re.search(r'\s\w+$', inpu):
-    word = re.search(r'\s\w+$', inpu)
-    result = len(word.group())-1
-    sys.stdout.write(str(result))
-elif re.search(r'\s?\w+$', inpu):
-    word = re.search(r'\s?\w+$', inpu)
-    result = len(word.group())
-    sys.stdout.write(str(result))
-else:
-    sys.exit()
+# if re.search(r'\s\w+$', inpu):
+#     word = re.search(r'\s\w+$', inpu)
+#     result = len(word.group())-1
+#     sys.stdout.write(str(result))
+# elif re.search(r'\s?\w+$', inpu):
+#     word = re.search(r'\s?\w+$', inpu)
+#     result = len(word.group())
+#     sys.stdout.write(str(result))
+# else:
+#     sys.exit()
 # ######################################################
+
+
+# huawei weitijiao
+import re
+
+size = int(input())
+array = input()
+order = int(input())
+
+sep_array = array.split(sep=' ')
+
+list = [int(i) for i in sep_array]
+
+
+if order == 0: 
+    print(sorted(list))
+else:
+    print(sorted(list)[::-1])
