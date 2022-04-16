@@ -83,10 +83,9 @@ for j in result:
 """ 5.字符串分割 """
 
 string = input()
-string = list(string)
 
 def separate(string):
-    groups = len(string) / 8
+    groups = int(len(string) / 8)
     for i in range(groups):
         print(string[i*8:(i+1)*8])
 
