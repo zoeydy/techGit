@@ -25,9 +25,11 @@
 ########################
 from ast import Break
 from curses import ACS_DARROW
+from imghdr import tests
 import imp
 import sys
 from time import time
+from traceback import print_tb
 from turtle import st
 from unittest import result, skip
 from pyparsing import restOfLine
@@ -234,19 +236,37 @@ for i in range(len(inpu)):
 # ######################################################
 
 
-# huawei weitijiao
-import re
+# # huawei weitijiao
+# import re
 
-size = int(input())
-array = input()
-order = int(input())
+# size = int(input())
+# array = input()
+# order = int(input())
 
-sep_array = array.split(sep=' ')
+# sep_array = array.split(sep=' ')
 
-list = [int(i) for i in sep_array]
+# list = [int(i) for i in sep_array]
 
 
-if order == 0: 
-    print(sorted(list))
-else:
-    print(sorted(list)[::-1])
+# if order == 0: 
+#     print(sorted(list))
+# else:
+#     print(sorted(list)[::-1])
+
+students = [[3,'Jack',12],[2,'Rose',13],[1,'Tom',10],[5,'Sam',12],[4,'Joy',8]]
+#按学号顺序排序：
+sorted(students,key=(lambda x:x[0]))
+#结果
+[[1, 'Tom', 10], [2, 'Rose', 13], [3, 'Jack', 12], [4, 'Joy', 8], [5, 'Sam', 12]]
+ 
+#按照名字排序
+sorted(students,key=(lambda x:x[1]))
+[[3, 'Jack', 12], [4, 'Joy', 8], [2, 'Rose', 13], [5, 'Sam', 12], [1, 'Tom', 10]]
+ 
+#按年龄倒序排序：
+sorted(students,key=(lambda x:x[2]),reverse=True)
+[[2, 'Rose', 13], [3, 'Jack', 12], [5, 'Sam', 12], [1, 'Tom', 10], [4, 'Joy', 8]]
+ 
+#按年龄为主要关键字，名字为次要关键字倒序排序：
+sorted(students,key=(lambda x:[x[2],x[1]]),reverse=True)
+[[2, 'Rose', 13], [5, 'Sam', 12], [3, 'Jack', 12], [1, 'Tom', 10], [4, 'Joy', 8]]

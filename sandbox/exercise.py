@@ -96,3 +96,110 @@ else:
     add_0 = '0'*add
     string = string + add_0
     separate(string)
+
+
+
+""" 6. 计算成绩(最少学习时间) """
+import numpy as np
+import sys
+import re
+
+# define the functions
+def match_num(inpu):
+    match = re.findall(r'\d+\s?',inpu)
+    return match
+
+# read the data
+inpu = sys.stdin.readlines()
+data = [[0 for i in range(3)] for j in range(len(inpu))]
+for i in range(len(inpu)):
+    size = len(match_num(inpu[i]))
+    temp = []
+    for j in range(size):
+        temp.append(int(match_num(inpu[i])[j]))
+        data[i] = temp
+
+# define main
+# 1.有几组数据需要处理
+
+rest = data
+heads = [i for i in data if len(i) == 3]
+for i in range(len(heads)):
+    n = heads[i][0]
+    r = heads[i][1]
+    avg = heads[i][2]
+    group = rest[0:n+1]
+    rest = rest[n+1:]
+    # calculatation
+    min_score = 0
+    b_list = []
+    for j in range(n):
+        min_score += group[j+1][0]
+        if int(group[j+1][1]) in b_list:
+            next
+        else:
+            b_list.append(int(group[j+1][1]))
+
+    # 判断分数
+    if min_score >= n*avg:
+        print(0)
+    else:
+        lower = min_score
+        upper = min_score
+        t = 0
+        # 需要处理几个b值
+        times = 0
+        while upper < n*avg:
+            
+            b_loop = sorted(b_list)[times]
+            
+            for l in range(n):
+                a = group[l+1][0]
+                b = group[l+1][1]
+                if b == b_loop:
+                    upper += (r-a) 
+                else:
+                    next 
+                    
+            t += (upper-lower)*b_loop
+            lower = upper 
+            times += 1
+        print(t+((n*avg-lower)*b_loop))
+
+
+# ##################################
+# # 用numpy
+# inpu = input()
+# if len(match_num(inpu)) == 3:
+
+#     n = int(match_num(inpu)[0])
+#     r = int(match_num(inpu)[1])
+#     avg = int(match_num(inpu)[2])
+
+#     table = np.zeros((n,2))
+#     for i in range(n):
+#         inpu = input()
+#         table[i,0] = int(match_num(inpu)[0])
+#         table[i,1] = int(match_num(inpu)[1])
+
+#     min_score = np.sum(table, axis=0)[0]
+#     if min_score >= n*avg:
+#         print(0)
+#     else:
+#         loop_time = len(set(np.sort(table[:,1])))
+#         upper = min_score
+
+#         for j in range(loop_time):
+#             min_b = list(set(np.sort(table[:,1])))[j]
+#             lower = upper
+#             upper = 0
+#             for k in range(n):
+#                 if table[k,1] == min_b:
+#                     upper += r
+#                 else:
+#                     upper += table[k,0]
+        
+#                 if upper >= n*avg:
+#                     print((n*avg-min_score)*min_b)
+#                     exit
+
