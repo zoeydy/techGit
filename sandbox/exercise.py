@@ -10,6 +10,9 @@
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。 """
 
 
+from difflib import restore
+
+
 class Solution1:
     def maxProfit(self, prices):
         min_price= int(1e9)
@@ -39,3 +42,58 @@ fib = FibonacciVar()
 fib.numWays(7)
 
 
+
+""" 3.计算某字符出现的次数 """
+
+array = input()
+obj = input()
+
+array = str(array.lower())
+obj = obj.lower()
+
+num = 0
+for i in range(len(array)):
+
+    if array[i] == obj:
+        num += 1
+    else:
+        next
+
+print(num)
+
+
+
+""" 4.N+随机数，返回不重复数字 """
+N = input()
+N = int(N)
+
+list = []
+for i in range(N):
+    temp = input()
+    temp = int(temp)
+    list.append(temp)
+
+result = set(list)
+result = sorted(result)
+
+for j in result:
+    print(j)
+
+
+""" 5.字符串分割 """
+
+string = input()
+string = list(string)
+
+def separate(string):
+    groups = len(string) / 8
+    for i in range(groups):
+        print(string[i*8:(i+1)*8])
+
+if len(string) % 8 == 0:
+    separate(string)
+else:
+    add = 8-len(string) % 8
+    add_0 = '0'*add
+    string = string + add_0
+    separate(string)

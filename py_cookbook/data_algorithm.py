@@ -2,8 +2,10 @@
 
 import imp 
 from statistics import mean
+from this import d
 
 from matplotlib.pyplot import cla
+
 
 
 p = (4,5)
@@ -120,7 +122,7 @@ q.popleft()
 q
 
 
-# 4. Finding the Largest or Smallest N Items (heapq())
+# 1.4 Finding the Largest or Smallest N Items (heapq())
 import heapq
 
 nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2] 
@@ -147,14 +149,16 @@ heapq.heappop(nums)
 heapq.heappop(nums)
 heapq.heappop(nums)
 
-# 5. implementing a priority queue
-import heapq
 
+
+
+# 1.5 Implementing a Priority Queue
+import heapq
 class PriorityQueue:
     def __init__(self):
         self._queue = []
         self._index = 0
-
+    
     def push(self, item, priority):
         heapq.heappush(self._queue, (-priority, self._index, item))
         self._index += 1
@@ -163,18 +167,22 @@ class PriorityQueue:
         return heapq.heappop(self._queue)[-1]
 
 class Item:
-    def __init__(self, name):
+    def __init__(self,name):
         self.name = name
     def __repr__(self):
         return 'Item({!r})'.format(self.name)
-    
+
 q = PriorityQueue()
 q.push(Item('foo'), 1)
 q.push(Item('bar'), 5)
-q.push(Item('apam'), 4)
-q.push(Item('grok'), 1)
+q.push(Item('spam'),4)
+q.push(Item('grok'),1)
 q.pop()
 q.pop()
 q.pop()
 q.pop()
 
+
+a = Item('foo')
+b = Item('bar')
+# a < b !this is going to return error
