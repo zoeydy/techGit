@@ -13,9 +13,15 @@ class Person:
     # attribute
     name = 'Jacobe'
     age = 39
-    # method
+    # ordinary method
     def greet(self): # self
         print(f"Hello, my name is {self.name}, I'm {self.age} years old.")
+    # static method
+    @staticmethod
+    def get_name():
+        return "Person"
+    # e.g. Person.get_name()
+    # 静态函数使用时应对class直接调用；普通函数需要创建object在对对象进行调用
 
 # create an object 创建具体实例，避免修改原始模板class
 # 即使 object.method() 和 class().method() 运行得出同样的结果

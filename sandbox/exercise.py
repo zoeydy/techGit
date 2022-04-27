@@ -10,7 +10,13 @@
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。 """
 
 
+from audioop import reverse
 from difflib import restore
+from math import gcd
+from time import process_time_ns
+from tkinter.colorchooser import askcolor
+from traceback import print_tb
+from turtle import right
 
 
 class Solution1:
@@ -203,3 +209,250 @@ for i in range(len(heads)):
 #                     print((n*avg-min_score)*min_b)
 #                     exit
 
+""" 7.找出没在序列中的数 """
+import re
+
+inpu = input()
+match = re.findall(r'\d+\s?',inpu)
+match
+
+n = int(match[0])
+array =[]
+for i in match[1:]:
+    array.append(int(i))
+array
+
+for i in range(n):
+    if i in array:
+        next 
+    else:
+        print(i)
+
+
+""" 8.扭蛋机，倒推事件 """
+
+N = int(input())
+
+array=[]
+x = N
+while x != 0:
+    if x%2 == 0:
+        x = (x-2)/2
+        array.append(2)
+    else:
+        x = (x-1)/2
+        array.append(3)
+
+array = array[::-1]
+for i in array:
+    print(i, end='')
+
+
+""" 9.路灯最小照明距离 """
+import re
+import sys
+
+inpu = sys.stdin.readlines()
+
+data = [[0 for i in range(1)] for i in range(len(inpu))]
+for i in range(len(inpu)):
+    match = re.findall(r'\d+\s?', inpu[i])
+
+    temp = []
+    for j in range(len(match)):
+        temp.append(int(match[j]))
+    data[i] = temp
+
+groups = [i for i in data if len(i) == 2]
+
+rest = data
+result = []
+for time in range(len(groups)):
+    n = groups[time][0]
+    l = groups[time][1]
+    a = rest[1]
+    rest = rest[2:]
+
+    index = sorted(a)
+
+    if index[0] != 0 | index[-1] != l:
+        compare = max(index[0], l - index[-1])*2
+    else:
+        compare = l/n
+
+    for i in range(len(index)-1):
+        dis = index[i+1] - index[i]
+        if compare > dis:
+            next 
+        else:
+            compare = dis
+
+    result.append(compare/2)
+
+for i in result:
+    print('%.2f' %(i))
+
+
+""" 10. 两刀切获取最大的奖金"""
+import re
+
+# read the data
+n = int(input())
+inpu = input()
+match = re.findall(r'\d\s?', inpu)
+match
+data = []
+for i in range(n):
+    data.append(int(match[i]))
+# define the function
+def add(direction, data, index):
+    if direction == 'l':
+        return sum(data[:index])
+    else:
+        return sum(data[index:])
+# calculate
+index_left = 1
+index_right = n-1
+sum_left = add('l', data, index_left)
+sum_right = add('r', data, index_right)
+
+equal_list = []
+while index_left <= index_right:
+    if sum_left < sum_right:
+        index_left += 1
+        sum_left = add('l', data, index_left)
+    elif sum_left > sum_right:
+        index_right -= 1
+        sum_right = add('r', data, index_right)
+    else:
+        equal_list.append(sum_right)
+        if (index_left +1 == index_right) | (index_left == index_right):
+            break
+        else:
+            index_left += 1
+            sum_left = add('l', data, index_left)
+
+if equal_list:
+    print(max(equal_list))
+else:
+    print(0)
+
+
+
+
+""" 11.最小的最大间隔 """
+import re
+import sys
+# read the data
+inpu = sys.stdin.readlines()
+data =[[0 for i in range(1)] for j in range(len(inpu))]
+for i in range(len(inpu)):
+    match = re.findall(r'[\d\s?]+\n', inpu[i])
+    sub_match = re.findall(r'\d+\s+\n?', match[0])
+    temp = []
+    for j in range(len(sub_match)):
+        temp.append(int(sub_match[j]))
+    data[i] = temp
+data
+
+# define the function to find the max distance in an array
+def max_dist(n, array):
+    distance = []
+    for i in range(n):
+        del_data = array.copy()
+        del_data.remove(del_data[i])
+        dis = []
+        for j in range(n-2):
+            dis.append(del_data[j+1] - del_data[j])
+        distance.append(max(dis))
+    return distance
+
+# calculate
+n_list = [lists for lists in data if len(lists) == 1]
+loop_times = len(n_list)
+
+min_list = []
+for time in range(loop_times):
+    n = n_list[time][0]
+    array = data[time*2+1]
+    dis_list = max_dist(n, array)
+    min_list.append(min(dis_list))
+
+for result in min_list:
+    print(result)
+
+""" 12.大整数相乘(it's not right cause says 不能用系统自带的最大整数类型) """
+import sys
+
+inpu = sys.stdin.readline()
+match = re.findall(r'[\d]+\s?', inpu)
+data = []
+for i in range(len(match)):
+    data.append(int(match[i]))
+
+result = data[0] * data[1]
+
+print(str(result))
+
+""" 13.小A最多会新认识多少人 """
+import sys
+import re
+# read the data
+inpu = sys.stdin.readlines()
+
+n, index, m = [int(i) for i in inpu[0:3]]
+pairs = inpu[3:]
+paris_list =[]
+for i in range(m):
+    head = int(re.findall(r"\d+",pairs[i])[0])
+    tail = int(re.findall(r"\d+",pairs[i])[1])
+    paris_list.append([head, tail])
+
+# find the people A knows
+a_pairs = [pair for pair in paris_list if index in pair]
+a_knows = [i for pair in a_pairs for i in pair if i != index]
+# introduce
+intro_list = []
+for i in range(len(a_knows)):
+    middle = a_knows[i]
+    middle_list = [pair for pair in paris_list if middle in pair]
+    intro = [i for pair in middle_list for i in pair if i != middle]
+    intro_list.append(intro)
+intro_list = [i for j in intro_list for i in j]
+
+result = [a_knows, intro_list]
+result = [i for j in result for i in j]
+result = set(result)
+
+print(len(result)-1)
+
+
+""" 14.最大乘水面积 """
+height = [2,3,4,5,18,17,6]
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        n = len(height)
+        i, j = 0, (n-1)
+
+        area = 0
+        while i < j & j <= n-1:
+
+            if height[i] < height[j]:
+                temp = height[i]*(j-i)
+                i += 1
+            else:
+                temp = height[j]*(j-i)
+                j -= 1
+
+            area = max(area, temp)
+        
+        return area
+
+""" 15. """
+a = 1
+b = 3
+b = 0
+if (a > b) & (a == 1):
+    print("true")
+else:
+    print('false')
