@@ -11,12 +11,16 @@
 
 
 from audioop import reverse
+from cgi import test
 from difflib import restore
 from math import gcd
+from operator import le, length_hint
 from time import process_time_ns
 from tkinter.colorchooser import askcolor
 from traceback import print_tb
-from turtle import right
+from turtle import left, numinput, right
+
+from pyparsing import restOfLine
 
 
 class Solution1:
@@ -426,7 +430,6 @@ result = set(result)
 
 print(len(result)-1)
 
-
 """ 14.最大乘水面积 """
 height = [2,3,4,5,18,17,6]
 class Solution:
@@ -456,3 +459,64 @@ if (a > b) & (a == 1):
     print("true")
 else:
     print('false')
+
+
+""" 16.输出最大连续字符串 """
+s = 'cc'
+class Solution:
+    def maxPower(self, s: str) -> int:
+        import re
+        match = re.findall(r'\w', s)
+
+        count_list = [1]
+        temp = 1
+        for i in range(1,len(match)):
+            if match[i] == match[i-1]:
+                temp += 1  
+                if i == len(match)-1:
+                    count_list.append(temp)
+            else:
+                count_list.append(temp)
+                temp = 1
+
+        return max(count_list)
+
+""" 17.输出乘积小于k的连续字数组 """
+nums = [1,2,3]
+k = 2
+
+class Solution:
+    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+
+        from functools import reduce
+
+        result = []
+        for length in range(1,len(nums)+1):
+            # print("length: ",length)
+            for index in range(len(nums)-length+1):
+                # print("index: ",index)
+                temp = nums[index:index+length]
+                # print(temp)
+                multi = reduce(lambda x,y: x*y, temp)
+                if multi < k:
+                    result.append(temp)
+        return len(result)
+# 时间复杂度过大
+# 另解：
+nums = [10,5,2,6]
+k = 100
+
+result, multi, left = 0,1,0
+for right in range(len(nums)):
+    num = nums[right]
+    multi *= num
+    while multi >= k and left < len(nums):
+        multi /= nums[left]
+        left += 1
+    if right-left+1 > 0:
+        result += right-left+1
+
+result
+
+
+
