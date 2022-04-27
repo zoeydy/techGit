@@ -19,6 +19,7 @@ from time import process_time_ns
 from tkinter.colorchooser import askcolor
 from traceback import print_tb
 from turtle import left, numinput, right
+from unittest.mock import sentinel
 
 from pyparsing import restOfLine
 
@@ -518,5 +519,28 @@ for right in range(len(nums)):
 
 result
 
+""" 18.输出出现最多次数 """
+nums = [1,2,2,3,1,4,2]
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
 
+        infor = dict()
 
+        for index, num in enumerate(nums):
+            if num in infor:
+                infor[num][0] += 1
+                infor[num][2] = index
+            else:
+                infor[num] = [1,index,index]
+        
+        # calculate the max_time and min_length
+        max_time = min_length = 0
+        for times, left, right in infor.values():
+            if times > max_time:
+                max_time = times
+                min_length = right-left+1
+            elif times == max_time:
+                if min_length > (alter := right-left+1):
+                    min_length = alter
+
+        return min_length
