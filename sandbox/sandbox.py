@@ -255,20 +255,84 @@ for i in range(len(inpu)):
 # else:
 #     print(sorted(list)[::-1])
 
-students = [[3,'Jack',12],[2,'Rose',13],[1,'Tom',10],[5,'Sam',12],[4,'Joy',8]]
-#按学号顺序排序：
-sorted(students,key=(lambda x:x[0]))
-#结果
-[[1, 'Tom', 10], [2, 'Rose', 13], [3, 'Jack', 12], [4, 'Joy', 8], [5, 'Sam', 12]]
- 
-#按照名字排序
-sorted(students,key=(lambda x:x[1]))
-[[3, 'Jack', 12], [4, 'Joy', 8], [2, 'Rose', 13], [5, 'Sam', 12], [1, 'Tom', 10]]
- 
-#按年龄倒序排序：
-sorted(students,key=(lambda x:x[2]),reverse=True)
-[[2, 'Rose', 13], [3, 'Jack', 12], [5, 'Sam', 12], [1, 'Tom', 10], [4, 'Joy', 8]]
- 
-#按年龄为主要关键字，名字为次要关键字倒序排序：
-sorted(students,key=(lambda x:[x[2],x[1]]),reverse=True)
-[[2, 'Rose', 13], [5, 'Sam', 12], [3, 'Jack', 12], [1, 'Tom', 10], [4, 'Joy', 8]]
+# ######################################################
+# 排序问题
+# students = [[3,'Jack',12],[2,'Rose',13],[1,'Tom',10],[5,'Sam',12],[4,'Joy',8]]
+# #按学号顺序排序：
+# sorted(students,key=(lambda x:x[0]))
+# #结果
+# [[1, 'Tom', 10], [2, 'Rose', 13], [3, 'Jack', 12], [4, 'Joy', 8], [5, 'Sam', 12]]
+# #按照名字排序
+# sorted(students,key=(lambda x:x[1]))
+# [[3, 'Jack', 12], [4, 'Joy', 8], [2, 'Rose', 13], [5, 'Sam', 12], [1, 'Tom', 10]]
+# #按年龄倒序排序：
+# sorted(students,key=(lambda x:x[2]),reverse=True)
+# [[2, 'Rose', 13], [3, 'Jack', 12], [5, 'Sam', 12], [1, 'Tom', 10], [4, 'Joy', 8]]
+# #按年龄为主要关键字，名字为次要关键字倒序排序：
+# sorted(students,key=(lambda x:[x[2],x[1]]),reverse=True)
+# [[2, 'Rose', 13], [5, 'Sam', 12], [3, 'Jack', 12], [1, 'Tom', 10], [4, 'Joy', 8]]
+# ######################################################
+
+
+# ######################################################
+# # python word加入图片
+# ######################################################
+# installation
+# pip install python-docx
+# python -c 'import docx'
+
+# # import the modules
+# import os
+# from docx import Document
+# from docx import shared
+
+# # initiate document
+# doc = Document()
+# doc.add_heading('Title')
+
+# # add picture
+# # 当只设置一个方向的长度（宽或高）时，另一方向会自动缩放
+# pic_path = os.getcwd()+'/techGit/test.png'
+# doc.add_picture(pic_path,width=shared.Inches(2))  # adjusting size using inches
+# doc.add_picture(pic_path,height=shared.Cm(2))  # adjusting size using cm
+
+# # 保存文件
+# doc.save('test.docx') # !NOTICE!: overwrite existing file without asking
+# ######################################################
+
+
+# ######################################################
+# # using range or while to iterate
+# ## using range
+# for i in range(3):
+#     print(i)
+# for i in range(3,15,2):
+#     print(i)
+# ## using while loop 
+# i = 0
+# while i < 3:
+#     print(i)
+#     i += 1
+# ######################################################
+
+# ######################################################
+# # delete repeat elements in list and return as a list 
+# a = [1,2,3,3]
+# ## delete repeats and return as list:
+# list({}.fromkeys(a))
+# ## or
+# b = {}
+# del_repeat = b.fromkeys(a)
+# list(del_repeat.keys())
+# ######################################################
+
+# ######################################################
+# # 判断list中是否含有某个元素
+# [1,2,3,4,5].__contains__(1)
+# ######################################################
+
+# ######################################################
+# # 遍历字符串并返回index
+# for i in enumerate("1+3"):
+#     print('index:   ', i[0], '\nelement: ', i[1])
+# ######################################################

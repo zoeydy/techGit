@@ -13,7 +13,7 @@
 from audioop import reverse
 from cgi import test
 from difflib import restore
-from math import gcd
+from math import floor, gcd
 from operator import le, length_hint
 from time import process_time_ns
 from tkinter.colorchooser import askcolor
@@ -544,3 +544,84 @@ class Solution:
                     min_length = alter
 
         return min_length
+
+
+
+""" 19.按序反转字符串 """
+str = "abcdefg"
+k = 2
+import re 
+import math
+
+match = re.findall(r'\w', str)
+times = math.ceil(len(match)/(2*k))
+
+result = []
+for time in range(times):
+
+    sub = match[time*2*k:(time+1)*2*k]
+    result.append(sub[::-1][-k:])
+    result.append(sub[k:])
+
+print(result)
+
+result = [i for item in result for i in item]
+''.join(i for i in result)
+
+
+""" 20 找出所有子字符串 """
+words = ["leetcoder","leetcode","od","hamlet","am"]
+
+# 方法1:
+# import re
+# result = []
+# for i in range(len(words)):
+#     obj = words[i]
+#     for j in range(len(words)):
+#         if i == j:
+#             next
+#         else:
+#             match = re.findall(obj, words[j])
+#             if len(match) > 0:
+#                 result.append(obj)
+
+# 方法2:
+result = []
+for i in range(len(words)):
+    for j in range(i+1, len(words)):
+        if words[i].__contains__(words[j]):
+            result.append(words[j])
+        elif words[j].__contains__(words[i]):
+            result.append(words[i])
+
+# 删除重复元素
+dic = {}
+dic = dic.fromkeys(result)
+list(dic.keys())
+# 删除：set
+# result = set(result)
+# list(result)
+
+
+
+""" 20. 判断是否是变位词 """
+s='abc'
+t='acb'
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        import re
+
+        if s == t:
+            return False
+        else:
+            letters1 = re.findall(r'\w', s)
+            letters2 = re.findall(r'\w', t)
+
+            if sorted(letters1) == sorted(letters2):
+                return True
+            else:
+                return False
+       
+
+
