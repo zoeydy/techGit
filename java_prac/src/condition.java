@@ -157,7 +157,7 @@ public class condition {
     */
     public static void scanner_break_continue() {
 
-        // initialize hte input function to interact with the user
+        // initialize the input function to interact with the user
         Scanner input = new Scanner(System.in);
         // initialize the sum
         int sum = 0;
