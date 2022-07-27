@@ -1,0 +1,32 @@
+
+body {
+    font-family: sans-serif;
+}
+p{
+    color: maroon;
+    /* background-color: maroon; */
+    /* font-family: sans-serif; */
+  }
+  h1,h2 {
+    /* font-family: sans-serif; */
+    color: grey;
+  }
+  h1 {
+    /* border-bottom: 1px solid black; */
+    text-decoration: underline;
+  }
+  /* em {
+      font-family: serif;
+  } */
+
+
+  /* 类 */
+  .greentea {
+      color: green;
+  }
+  p.raspberry {
+      color: blue;
+  }
+  p.blueberry {
+      color: purple;
+  }
