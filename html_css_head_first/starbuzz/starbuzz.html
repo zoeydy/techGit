@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbuzz Coffee</title>
+    <style type="text/css">
+        body {
+            background-color: #d2b48c;
+            margin-left: 20%;
+            margin-right: 20%;
+            border: 2px dotted black;
+            padding: 10px 10px 10px 10px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="top">Starbuzz Coffee Beverages</h1>  
+
+    <h2>House Blend, $1.49</h2>
+    <p>A smooth, mild blend of coffees from Mexico, Bolivia and Guatemala.</p>
+
+    <h2>Mocha Cafe Latte, $2.35</h2>
+    <p>Espresso, steamed milk and chocolate syrup.</p>
+
+    <h2>Cappuccino, $1.89</h2>
+    <p>A mixture of espresso, steamed milk and foam.</p>
+
+    <h2 id="chai">Chai Tea, $1.85</h2>
+    <p>A spicy drink made with black tea, spices, milk and honey.</p>
+
+    <p>
+        Read about <a href="mission.html" id="mission"
+                      title="Read more about Starbuzz Coffee's important mission"
+                      target="coffee"
+                    >our Mission</a>
+        <br>
+        <!-- add #{id} 定位到目标页面的特定位置 -->
+        <!-- href="http://wickedlysmart.com/buzz/index.html#Coffee"  -->
+        <!-- 或者 http://wickedlysmart.com/buzz/#Coffee 未定位到觉得html“/”不可少-->
+        Read the <a href="http://wickedlysmart.com/buzz/index.html#Coffee"
+                    title="Read all about caffeine on the Buzz"
+                    target="_blank"
+                    >Caffeine Buzz </a>
+                    <!-- 添加title属性，当鼠标移动到链接时，会显示内容，对于盲人来说，浏览器可以朗读出链接标题 -->
+                    <!-- 添加target属性，告诉浏览器用一个不同的窗口打开链接网页 -->
+
+        <!-- test 属性都是coffee的链接：会弹出新页面-->
+        <br>
+        <a href="http://wickedlysmart.com/buzz/index.html#Coffee" target="coffee">coffee</a>
+    </p>
+
+    <!-- Test back to the top link -->
+    Test <p>back to top</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="starbuzz.html#top">Test back to top</a>
+    <br>
+    <!-- link to a link -->
+    Go to the <a href="starbuzz.html#mission">mission link</a>
+</body>
+
+</html>
+
