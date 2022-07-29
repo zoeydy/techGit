@@ -1,0 +1,29 @@
+body {
+    font-family: Verdana, Geneva, Arial, sans-serif;
+}
+
+h1,h2 {
+    color: #c60;
+    /* text-decoration: underline; */
+    border-bottom: thin dotted #888888;
+}
+
+h1 {
+    font-family: "Emblema One", sans-serif;
+    font-size: 220%;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 130%;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+em {
+    text-decoration: line-through;
+    text-decoration: underline overline;
+    text-decoration: none;
+}
